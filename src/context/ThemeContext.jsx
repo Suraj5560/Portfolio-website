@@ -4,7 +4,7 @@ import { ThemeContext } from './theme.js'
 export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
     const saved = typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null
-    return saved || 'dark'
+    return saved || 'light'
   })
 
   useEffect(() => {
