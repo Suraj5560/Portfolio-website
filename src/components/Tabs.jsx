@@ -17,7 +17,7 @@ export default function Tabs({ items }) {
       </div>
       <div className="tab-panel neu">
         <h3 className="tab-title">{items[active].label}</h3>
-        <p className="tab-desc">{items[active].content}</p>
+        <div className="tab-desc">{items[active].content}</div>
       </div>
     </div>
   )

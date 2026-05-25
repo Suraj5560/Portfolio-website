@@ -16,6 +16,7 @@ export default function Layout() {
 
   return (
     <div className="layout">
+      <div className="bg-grid"></div>
       <Navbar />
       <main className="page">
         <Outlet />

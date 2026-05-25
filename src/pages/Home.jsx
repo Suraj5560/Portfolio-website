@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal.jsx'
 import Tabs from '../components/Tabs.jsx'
+import { servicesData } from './Services.jsx'
 import profile from '../assets/profile.jpg'
 import aboutMe from '../assets/about-me.png'
 import servicesImg from '../assets/services.png'
@@ -18,79 +19,99 @@ const workingOn = [
   'Streamlining tax compliance workflows',
 ]
 
-const services = [
+const testimonials = [
   {
-    label: 'Cost Accounting',
-    content:
-      'I provide comprehensive cost accounting services to help businesses understand and control their cost structures. This includes product costing, variance analysis, overhead allocation, and cost behavior studies. By identifying inefficiencies and cost drivers, I enable organizations to optimize pricing, improve margins, and enhance overall operational performance through data-driven cost control frameworks.',
+    text: "Durga's cost analysis was a game-changer for our manufacturing unit. We achieved a 12% reduction in overheads within the first quarter.",
+    author: "Rajesh Kumar",
+    position: "Operations Director, TechFab India"
   },
   {
-    label: 'Financial Planning & Analysis',
-    content:
-      'My FP&A services focus on delivering strategic insights through budgeting, forecasting, and performance analysis. I develop financial models, dashboards, and KPI frameworks that support executive decision-making. By analyzing trends and scenario outcomes, I help businesses anticipate risks, allocate resources effectively, and achieve sustainable growth aligned with their strategic objectives.',
+    text: "The financial models developed for our expansion were incredibly precise. His strategic insights provided the clarity we needed for board approval.",
+    author: "Sneha Reddy",
+    position: "CFO, Global Logistics Solutions"
   },
   {
-    label: 'Budgeting & Forecasting',
-    content:
-      'I assist organizations in creating accurate and flexible budgets and rolling forecasts tailored to their business needs. This includes scenario planning, sensitivity analysis, and cash flow projections. My approach ensures financial plans remain adaptive to changing market conditions while providing clarity and control over future financial performance.',
-  },
-  {
-    label: 'Tax Consulting',
-    content:
-      'My tax consulting services cover compliance reviews, tax planning, and filing support to ensure regulatory accuracy and efficiency. I help streamline tax processes, minimize liabilities, and maintain compliance with applicable laws. By aligning tax strategies with business goals, I support long-term financial stability and risk mitigation.',
-  },
-  {
-    label: 'Audit Support',
-    content:
-      'I provide end-to-end audit support, including pre-audit preparation, documentation, reconciliations, and liaison with auditors. My services help ensure a smooth audit process by addressing discrepancies, improving internal controls, and enhancing transparency. This reduces audit risks and strengthens financial credibility.',
-  },
-  {
-    label: 'Business Advisory',
-    content:
-      'My business advisory services focus on profitability analysis, pricing strategies, cost optimization, and growth planning. I work closely with leadership teams to identify improvement opportunities and develop actionable financial roadmaps. By combining financial insights with strategic thinking, I help businesses drive efficiency, competitiveness, and long-term success.',
-  },
+    text: "Professional, thorough, and highly knowledgeable. Durga simplified our complex tax compliance issues and optimized our reporting structure.",
+    author: "Amit Sharma",
+    position: "Founder, Sharma & Co."
+  }
 ]
-
 
 export default function Home() {
   return (
     <div className="home">
-      <section id="home" className="section" aria-labelledby="home-title">
-        <div className="grid two hero">
-          <Reveal>
-            <div className="intro neu">
-              <h1 id="home-title" className="greet">Hi, I’m Durga Prasad</h1>
-              <h2 className="role">Cost Management Accountant (CMA)</h2>
-              <p className="summary">
-                Experienced in cost accounting, FP&A, budgeting, tax and audit support. I help
-                businesses optimize costs and drive strategic financial decisions.
+      <section id="home" className="hero-section" aria-labelledby="home-title">
+        <div className="hero-container">
+          <div className="hero-content">
+            <Reveal>
+              <div className="hero-badge">Expert Financial Strategy</div>
+              <h1 id="home-title" className="hero-title">
+                Strategic Cost Management for <span className="text-gradient">Business Excellence</span>
+              </h1>
+              <p className="hero-subtitle">
+                As a Cost Management Accountant (CMA), I empower businesses to optimize operations, 
+                reduce waste, and drive sustainable profitability through data-driven financial insights.
               </p>
-              <div className="actions">
-                <a href="#contact" className="btn outline">Contact Me</a>
+              <div className="hero-actions">
+                <a href="#contact" className="btn primary">Schedule Consultation</a>
+                <a href="#services" className="btn outline">Explore Services</a>
               </div>
-            </div>
-          </Reveal>
-          <Reveal>
-            <div className="photo glass">
-              <img
-                src={profile}
-                alt="Profile illustration"
-                className="profile-img"
-                loading="lazy"
-                decoding="async"
-                width="400"
-                height="400"
-              />
-            </div>
-          </Reveal>
+              <div className="hero-stats">
+                <div className="stat-item">
+                  <span className="stat-value">10+</span>
+                  <span className="stat-label">Years Experience</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-value">50+</span>
+                  <span className="stat-label">Projects Optimized</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-value">12%</span>
+                  <span className="stat-label">Avg. Cost Reduction</span>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+          <div className="hero-visual">
+            <Reveal>
+              <div className="visual-wrapper">
+                <div className="visual-blob"></div>
+                <div className="visual-blob secondary"></div>
+                <div className="photo-frame">
+                  <img
+                    src={profile}
+                    alt="Durga Prasad - CMA Professional"
+                    className="hero-img"
+                    loading="eager"
+                    width="500"
+                    height="600"
+                  />
+                </div>
+                <div className="floating-card cost-card">
+                  <div className="card-icon">📉</div>
+                  <div>
+                    <div className="card-title">Cost Efficiency</div>
+                    <div className="card-val">+24%</div>
+                  </div>
+                </div>
+                <div className="floating-card profit-card">
+                  <div className="card-icon">📈</div>
+                  <div>
+                    <div className="card-title">Profit Margin</div>
+                    <div className="card-val">+18%</div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       <section id="about" className="section" aria-labelledby="about-title">
         <Reveal>
-          <div className="bio neu">
+          <div className="bio">
             <div className='about-content'>
-              <img className='about-img' src= {aboutMe} />
+              <img className='about-img' src= {aboutMe} alt="About Me Logo" />
               <h2 id="about-title">About Me</h2>
             </div>
             <p>
@@ -102,7 +123,7 @@ export default function Home() {
         </Reveal>
         <div className="about-grid">
           <Reveal>
-            <div className="card glass">
+            <div className="card about-card">
               <h3>Achievements</h3>
               <ul className="list">
                 {achievements.map((a) => (
@@ -114,7 +135,7 @@ export default function Home() {
           <div className="about-divider glass" role="separator" aria-orientation="horizontal" />
 
           <Reveal>
-            <div className="card glass">
+            <div className="card about-card">
               <h3>Currently Working On</h3>
               <ul className="list">
                 {workingOn.map((a) => (
@@ -124,10 +145,10 @@ export default function Home() {
             </div>
           </Reveal>
         </div>
+        <div className="about-actions centered">
+          <Link className="btn outline" to="/gallery">Gallery</Link>
+        </div>
       </section>
-      <div className="about-actions">
-        <Link className="btn outline" to="/gallery">Gallery</Link>
-      </div>
 
       <section id="services" className="section" aria-labelledby="services-title">
         <Reveal>
@@ -137,7 +158,47 @@ export default function Home() {
               <img className='services-img' src={servicesImg} />
             <h2 id="services-title">Services</h2>
             </div>
-            <Tabs items={services} />
+            <Tabs items={servicesData} />
+          </div>
+        </Reveal>
+      </section>
+
+      <section id="testimonials" className="section" aria-labelledby="testimonials-title">
+        <div className="container">
+          <Reveal>
+            <div className="testimonials-header">
+              <span className="section-badge">Client Success</span>
+              <h2 id="testimonials-title">What My <span className="text-gradient">Clients Say</span></h2>
+            </div>
+            <div className="testimonials-grid">
+              {testimonials.map((t, i) => (
+                <div key={i} className="testimonial-card glass">
+                  <div className="quote-icon">"</div>
+                  <p className="testimonial-text">{t.text}</p>
+                  <div className="testimonial-footer">
+                    <div className="author-info">
+                      <span className="author-name">{t.author}</span>
+                      <span className="author-pos">{t.position}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="cta-banner section">
+        <Reveal>
+          <div className="cta-container glass">
+            <div className="cta-content">
+              <h2>Ready to Optimize Your Business Finances?</h2>
+              <p>Join 50+ successful projects that have transformed their cost management strategies.</p>
+              <div className="cta-buttons">
+                <Link to="/contact" className="btn primary">Start Free Consultation</Link>
+                <a href="#services" className="btn outline">View Full Services</a>
+              </div>
+            </div>
           </div>
         </Reveal>
       </section>

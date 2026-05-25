@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { ThemeContext } from '../context/theme.js'
 
 export default function Navbar() {
   const { theme, toggle } = useContext(ThemeContext)
   const [open, setOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
+  const location = useLocation()
 
   useEffect(() => {
     const homeSection = document.getElementById('home')
@@ -26,11 +28,15 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const isHomePage = location.pathname === '/'
+
   return (
     <header className={`navbar ${hidden ? 'navbar-hidden' : ''}`}>
       <div className="nav-inner">
         <div className="nav-brand">
-          <span className="logo">CMA Durga Prasad</span>
+          <Link to="/" className="logo" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <span>CMA Durga Prasad</span>
+          </Link>
         </div>
 
         <button
@@ -46,18 +52,37 @@ export default function Navbar() {
           role="navigation"
           aria-label="Primary"
         >
-          <a href="#home" className="nav-link" onClick={() => setOpen(false)}>
-            Home
-          </a>
-          <a href="#about" className="nav-link" onClick={() => setOpen(false)}>
-            About
-          </a>
-          <a href="#services" className="nav-link" onClick={() => setOpen(false)}>
-            Services
-          </a>
-          <a href="#contact" className="nav-link" onClick={() => setOpen(false)}>
-            Contact
-          </a>
+          {isHomePage ? (
+            <>
+              <a href="#home" className="nav-link" onClick={() => setOpen(false)}>
+                Home
+              </a>
+              <a href="#about" className="nav-link" onClick={() => setOpen(false)}>
+                About
+              </a>
+              <a href="#services" className="nav-link" onClick={() => setOpen(false)}>
+                Services
+              </a>
+              <a href="#contact" className="nav-link" onClick={() => setOpen(false)}>
+                Contact
+              </a>
+            </>
+          ) : (
+            <>
+              <Link to="/#home" className="nav-link" onClick={() => setOpen(false)}>
+                Home
+              </Link>
+              <Link to="/#about" className="nav-link" onClick={() => setOpen(false)}>
+                About
+              </Link>
+              <Link to="/#services" className="nav-link" onClick={() => setOpen(false)}>
+                Services
+              </Link>
+              <Link to="/#contact" className="nav-link" onClick={() => setOpen(false)}>
+                Contact
+              </Link>
+            </>
+          )}
 
           <button className="theme-toggle" onClick={toggle} aria-label="Toggle theme">
             {theme === 'dark' ? '☀︎' : '🌙'}
